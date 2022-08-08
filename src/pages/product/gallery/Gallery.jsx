@@ -68,7 +68,7 @@ export default function Gallery({ productId, skeleton }) {
             </div>
         );
     });
-    // debugger;
+
     return (
         <section className="gallery | flex">
             <div className={`gallery__main-photo-wrapper | ${skeleton ? "skeleton" : ""}`}>

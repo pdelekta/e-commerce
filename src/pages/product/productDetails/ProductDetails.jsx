@@ -55,37 +55,44 @@ export default function ProductDetails({ productId, skeleton }) {
         }
     };
 
-    if (skeleton) return <p>Loading</p>;
-
+    // debugger;
     return (
-        <section className={`product-details | flex ${skeleton ? "skeleton" : ""}`}>
-            <h2 className="product-details__brand | uppercase | text-primary-dark | fs-300">{brand}</h2>
+        <section className="product-details | flex ">
+            <h2
+                className={`product-details__brand | uppercase | text-primary-dark | fs-300 ${
+                    skeleton ? "skeleton" : ""
+                }`}
+            >
+                {!skeleton ? brand : undefined}
+            </h2>
             <h1
                 className={`product-details__title | fs-700 fw-bold text-neutral-darker ${
                     skeleton ? "skeleton" : ""
                 }`}
             >
-                {name}
+                {!skeleton ? name : undefined}
             </h1>
             <p
                 className={`product-details__description | fs-400 text-neutral-dark ${
                     skeleton ? "skeleton" : ""
                 }`}
             >
-                {description}
+                {!skeleton ? description : undefined}
             </p>
             <div className="price-container | flex">
-                <div className="price-container__main-price | flex">
-                    <span className="price-container__price | fs-600 fw-bold text-neutral-darker">
-                        {priceFormatter(price.valid)}
-                    </span>
-                    {price.beforeDiscount > price.valid && !skeleton && (
-                        <span className="price-container__discount-amount | bg-primary-light text-primary-dark fw-bold">
-                            {discountGenerator(price.beforeDiscount, price.valid)}
+                {!skeleton && (
+                    <div className="price-container__main-price | flex">
+                        <span className="price-container__price | fs-600 fw-bold text-neutral-darker">
+                            {priceFormatter(price?.valid)}
                         </span>
-                    )}
-                </div>
-                {price.beforeDiscount > price.valid && !skeleton && (
+                        {price?.beforeDiscount > price?.valid && (
+                            <span className="price-container__discount-amount | bg-primary-light text-primary-dark fw-bold">
+                                {discountGenerator(price.beforeDiscount, price.valid)}
+                            </span>
+                        )}
+                    </div>
+                )}
+                {price?.beforeDiscount > price?.valid && (
                     <span className="price-container__old-price | text-neutral fw-bold">
                         {priceFormatter(price.beforeDiscount)}
                     </span>
@@ -102,6 +109,7 @@ export default function ProductDetails({ productId, skeleton }) {
                 <button
                     className="btn btn--add-to-cart | flex bg-primary-dark text-white fw-bold"
                     onClick={handleAddToCart}
+                    disabled={skeleton}
                 >
                     <CartIcon alt="cart icon" />
                     Add to cart

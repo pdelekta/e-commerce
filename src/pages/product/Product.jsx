@@ -28,16 +28,13 @@ export default function Product() {
         response.then().catch(error => {
             setError(error.message);
         });
-        // debugger;
-
-        if (!isProductsLoading && !hasProductsError && !isProductById) {
-            setError("Product not found!");
-        }
     }
 
     if (hasProductsError && error) return <p>{error}</p>;
 
-    return (
+    return hasProductsError && error ? (
+        <p>{error}</p>
+    ) : (
         <>
             <Gallery productId={productId} skeleton={isProductsLoading} />
             <ProductDetails productId={productId} skeleton={isProductsLoading} />
