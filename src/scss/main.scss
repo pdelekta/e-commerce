@@ -1,0 +1,24 @@
+/* Table of contents
+------------------------------
+
+-- base imports
+-- component imports
+-- layout imports
+**/
+
+/* base imports */
+@use "./base/reset";
+@use "./base/typography";
+@use "./base/utilities";
+
+/* components imports */
+@use "./components/header";
+@use "./components/gallery";
+@use "./components/product-details";
+@use "./components/button";
+@use "./components/cart";
+@use "./components/lightbox";
+@use "./components//pageNotFound";
+
+/* layout imports */
+@use "./layout/main.scss";

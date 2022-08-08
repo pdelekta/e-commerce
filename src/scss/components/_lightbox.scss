@@ -1,0 +1,91 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:map";
+
+.lightbox {
+    max-width: clamp(50%, 60rem, calc(100% - 3rem));
+    border: none;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::backdrop {
+        background-color: map.get($bg-colors, "black");
+    }
+
+    .lightbox-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__close {
+        margin-left: auto;
+        margin-right: calc($lightbox-buttons-size / 2);
+        height: 1.4rem;
+        cursor: pointer;
+        transition: color 0.2s map.get($animation-types, "default");
+
+        &:hover,
+        &:focus {
+            color: map.get($colors, "primary-dark");
+        }
+    }
+
+    &__main-photo-wrapper {
+        position: relative;
+        border-radius: 1rem;
+        margin-inline: calc($lightbox-buttons-size / 2);
+        user-select: none;
+    }
+
+    &__main-photo {
+        border-radius: 1rem;
+        aspect-ratio: 1;
+        max-height: 70vh;
+    }
+
+    .prev-button--lightbox,
+    .next-button--lightbox {
+        @include gallery-button;
+        width: $lightbox-buttons-size;
+        top: calc(50% - ($lightbox-buttons-size / 2));
+        transition: color 0.1s map.get($animation-types, "default");
+
+        &:hover {
+            color: map.get($colors, "primary-dark");
+        }
+
+        & > svg {
+            width: 1.2rem;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .prev-button--lightbox {
+        left: calc($lightbox-buttons-size / -2);
+    }
+
+    .next-button--lightbox {
+        right: calc($lightbox-buttons-size / -2);
+    }
+
+    &__thumbnails {
+        user-select: none;
+    }
+
+    &__thumbnails-item-wrapper {
+        @include thumbnail-item;
+        background-color: #ffffff;
+    }
+
+    &__thumbnails-item {
+        border-radius: 0.5rem;
+    }
+}

@@ -1,0 +1,133 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:map";
+
+.gallery {
+    &__main-photo-wrapper {
+        position: relative;
+    }
+
+    &__main-photo-wrapper {
+        width: 100%;
+        aspect-ratio: 1;
+    }
+
+    &__main-photo {
+        position: relative;
+        cursor: pointer;
+        transition: filter 0.2s map.get($animation-types, "default");
+    }
+    &__thumbnails {
+        gap: var(--gap, 1rem);
+        display: none;
+
+        &__item-wrapper {
+            @include thumbnail-item;
+            background-color: #ffffff;
+        }
+
+        &__item {
+            border-radius: 0.5rem;
+        }
+    }
+}
+
+.next-button {
+    @include gallery-button;
+    width: $gallery-buttons-size;
+    top: calc(50% - ($gallery-buttons-size / 2));
+    right: 1.5rem;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+    }
+
+    &__icon {
+        width: 0.8rem;
+    }
+}
+
+.prev-button {
+    @include gallery-button;
+    width: $gallery-buttons-size;
+    top: calc(50% - ($gallery-buttons-size / 2));
+    left: 1.5rem;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+    }
+
+    &__icon {
+        width: 0.8rem;
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "mobile")) {
+    .gallery {
+        --gap: clamp(1rem, 3vw, 2rem);
+        flex-direction: column;
+        flex-grow: 1;
+
+        &__main-photo-wrapper {
+            border-radius: 1rem;
+            max-height: 35vh;
+        }
+
+        &__main-photo {
+            border-radius: 1rem;
+            max-height: 35vh;
+            object-fit: cover;
+            width: 100%;
+
+            &:hover,
+            &:focus {
+                filter: opacity(0.75);
+            }
+        }
+        &__thumbnails {
+            justify-content: center;
+            display: flex;
+            width: 100%;
+        }
+    }
+
+    .prev-button,
+    .next-button {
+        display: none;
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "mobile")) and (max-width: map.get($media-breakpoints, "tablet")) {
+    .gallery {
+        padding-inline: 1.5rem;
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "tablet")) {
+    .gallery {
+        justify-content: center;
+
+        &__main-photo-wrapper {
+            // max-width: min(36rem, 40vw);
+            width: min(36rem, 40vw);
+            aspect-ratio: 1;
+            max-height: none;
+        }
+
+        &__main-photo {
+            max-width: min(36rem, 40vw);
+            width: auto;
+            aspect-ratio: 1;
+            max-height: none;
+        }
+        &__thumbnails {
+            --gap: clamp(1rem, 3vw, 2rem);
+            max-width: min(36rem, 40vw);
+        }
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "desktop")) {
+}

@@ -1,0 +1,27 @@
+@use "../abstracts/variables" as *;
+@use "sass:map";
+
+.main-container {
+    --gap: 1.5rem;
+    flex-direction: column;
+}
+
+@media (min-width: map.get($media-breakpoints, "mobile")) {
+}
+
+@media (min-width: map.get($media-breakpoints, "tablet")) {
+    .main-container {
+        --gap: 6vw;
+        padding-inline: 4rem;
+        flex-direction: row;
+        margin-inline: auto;
+        max-width: 90rem;
+        margin-top: 5rem;
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "desktop")) {
+    .main-container {
+        --gap: 7rem;
+    }
+}

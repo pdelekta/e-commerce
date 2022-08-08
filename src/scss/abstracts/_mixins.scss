@@ -1,0 +1,50 @@
+@use "./variables" as *;
+@use "sass:map";
+
+@mixin gallery-button() {
+    color: map.get($colors, "neutral-darker");
+    position: absolute;
+    border-radius: 50%;
+    border: none;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: map.get($bg-colors, "white");
+    transition: transform 0.2s map.get($animation-types, "default");
+    cursor: pointer;
+
+    &__icon {
+        aspect-ratio: 1;
+    }
+}
+
+@mixin thumbnail-item() {
+    cursor: pointer;
+    transition: outline 0.1s map.get($animation-types, "default");
+
+    & > img {
+        transition: filter 0.2s map.get($animation-types, "default");
+    }
+
+    &:hover > img,
+    &:focus > img {
+        filter: opacity(0.75);
+    }
+
+    &.active {
+        outline: 2px solid map.get($colors, "primary-dark");
+        & > img {
+            filter: opacity(0.5);
+        }
+        // filter: brightness(1.5) contrast(0.5) saturate(0.6);
+    }
+
+    @media (min-width: map.get($media-breakpoints, "mobile")) {
+        width: calc(25% - calc(0.75 * var(--gap)));
+        aspect-ratio: 1 / 1;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        max-width: 7rem;
+    }
+}

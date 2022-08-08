@@ -1,0 +1,119 @@
+@use "../abstracts/variables" as *;
+@use "sass:map";
+
+.cart-container {
+    --gap: 0;
+    pointer-events: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 5;
+    top: calc($cart-animation-distance + 4.75rem);
+    left: 0.5rem;
+    right: 0.5rem;
+    margin-inline: auto;
+    background-color: map.get($bg-colors, "white");
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.2s map.get($animation-types, "default"),
+        top 0.2s map.get($animation-types, "default");
+    box-shadow: 0 18px 30px -18px map.get($bg-colors, "black-light");
+
+    &[data-visible="true"] {
+        opacity: 1;
+        pointer-events: all;
+        top: 4.75rem;
+    }
+
+    &__header {
+        padding: 1.5rem;
+        border-bottom: 1px solid map.get($colors, "neutral-medium");
+    }
+
+    &__content {
+        flex-direction: column;
+        padding: 1.5rem;
+        flex-grow: 1;
+        --gap: 1rem;
+    }
+
+    &__empty {
+        margin: auto;
+    }
+}
+
+.cart-items {
+    flex-direction: column;
+    --gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cart-item {
+    align-items: center;
+
+    &__link {
+        text-decoration: none;
+        align-items: center;
+        &:hover .cart-item__image,
+        &:focus .cart-item__image {
+            filter: opacity(0.75);
+        }
+    }
+
+    &__image {
+        transition: filter 0.2s map.get($animation-types, "default");
+        width: 3rem;
+        border-radius: 0.25rem;
+        aspect-ratio: 1;
+    }
+
+    &__text {
+        flex-direction: column;
+        --gap: 0.5rem;
+    }
+
+    &__prices {
+        gap: 0.25rem;
+    }
+
+    &__delete {
+        margin-left: auto;
+        color: map.get($colors, "neutral");
+        cursor: pointer;
+        transition: color 0.2s map.get($animation-types, "default");
+
+        &:hover,
+        &:focus {
+            color: map.get($colors, "neutral-dark");
+        }
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "mobile")) {
+    .cart-container {
+        width: $cart-width;
+        left: unset;
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "tablet")) {
+    .cart-container {
+        top: calc($cart-animation-distance + 6rem);
+
+        &[data-visible="true"] {
+            top: 6rem;
+        }
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "1600")) {
+    .cart-container {
+        right: calc(-0.5 * $cart-width);
+        top: calc($cart-animation-distance + 3rem);
+
+        &[data-visible="true"] {
+            top: 3rem;
+        }
+    }
+}

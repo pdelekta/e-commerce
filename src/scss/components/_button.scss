@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as *;
+@use "sass:map";
+
+.btn {
+    justify-content: center;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    align-items: center;
+    transition: opacity 0.2s map.get($animation-types, "default");
+
+    & > img {
+        color: map.get($bg-colors, "white");
+    }
+
+    &:hover,
+    &:focus-visible {
+        opacity: 0.8;
+    }
+
+    &--add-to-cart {
+        box-shadow: 0px 16px 28px -16px map.get($colors, "primary-dark");
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "mobile")) {
+    .btn {
+        padding-inline: clamp(2rem, 8vw, 6rem);
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "tablet")) {
+    .btn {
+        padding-inline: 1rem;
+        flex-grow: 1;
+    }
+}

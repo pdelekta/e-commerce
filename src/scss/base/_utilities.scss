@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+
+@each $color, $value in $colors {
+    .text-#{$color} {
+        color: $value;
+    }
+}
+
+@each $bg-color, $value in $bg-colors {
+    .bg-#{$bg-color} {
+        background-color: $value;
+    }
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1rem);
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsla(201, 15%, 70%, 0.7);
+    }
+
+    100% {
+        background-color: hsl(200, 15%, 95%, 0.7);
+    }
+}

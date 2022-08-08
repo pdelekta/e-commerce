@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as *;
+@use "sass:map";
+/* Google font import */
+
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+body {
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+@each $size, $value in $font-sizes-mobile {
+    .fs-#{$size} {
+        font-size: $value;
+    }
+}
+
+@each $weight, $value in $font-weights {
+    .fw-#{$weight} {
+        font-weight: $value;
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "mobile")) {
+    @each $size, $value in $font-sizes-tablet {
+        .fs-#{$size} {
+            font-size: $value;
+        }
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "tablet")) {
+    @each $size, $value in $font-sizes-desktop {
+        .fs-#{$size} {
+            font-size: $value;
+        }
+    }
+}

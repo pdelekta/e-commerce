@@ -1,0 +1,64 @@
+@use "sass:map";
+@use "sass:math";
+
+$font-sizes-mobile: (
+    "300": 0.7rem,
+    "400": 0.8rem,
+    "500": 1rem,
+    "600": 1.5rem,
+    "700": 1.5rem,
+);
+
+$font-sizes-tablet: (
+    "400": 0.9rem,
+    "700": 2rem,
+);
+
+$font-sizes-desktop: (
+    "300": 0.9rem,
+    "400": 1rem,
+    "700": 3rem,
+);
+
+$font-weights: (
+    "normal": 400,
+    "bold": 700,
+);
+
+$colors: (
+    "primary-dark": hsl(26 100% 55%),
+    "primary-light": hsl(25 100% 80%),
+    "primary-lighter": hsl(25 100% 94%),
+    "neutral-darker": hsl(220 13% 13%),
+    "neutral-dark": hsl(219 9% 45%),
+    "neutral": hsl(220 14% 75%),
+    "neutral-medium": hsl(220 14% 75% / 0.25),
+    "white": hsl(0 0% 100%),
+);
+
+$bg-colors: (
+    "primary-dark": hsl(26 100% 55%),
+    "primary-light": hsl(25 100% 94%),
+    "neutral-light": hsl(223 64% 98%),
+    "black": hsl(0 0% 0% / 0.75),
+    "black-light": hsl(0 0% 0% / 0.4),
+    "white": hsl(0 0% 100%),
+);
+
+$animation-types: (
+    "default": cubic-bezier(0, 0, 0.2, 1),
+);
+
+$media-breakpoints: (
+    "mobile": 26em,
+    "tablet": 48.75em,
+    "desktop": 90em,
+    "1600": 100em,
+);
+
+$cart-animation-distance: 2rem;
+$cart-width: 25rem;
+$cart-quantity-font-size: 0.5rem;
+
+$gallery-buttons-size: 2.5rem;
+$lightbox-buttons-size: 4rem;

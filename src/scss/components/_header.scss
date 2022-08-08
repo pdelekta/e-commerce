@@ -1,0 +1,184 @@
+@use "sass:map";
+@use "../abstracts/variables" as *;
+
+.primary-header {
+    align-items: center;
+    padding: 1.5rem;
+    position: relative;
+
+    &__cart {
+        color: map.get($colors, "neutral-dark");
+        margin-left: auto;
+        transition: color 0.2s map.get($animation-types, "default");
+
+        & > svg {
+            cursor: pointer;
+        }
+
+        & > .cart-icon-wrapper {
+            cursor: pointer;
+            position: relative;
+
+            & > .cart-icon-quantity {
+                pointer-events: none;
+                user-select: none;
+                position: absolute;
+                top: calc(($cart-quantity-font-size * 1.2) / -2);
+                right: calc(($cart-quantity-font-size * 1.2) / -2);
+                font-size: $cart-quantity-font-size;
+                color: map.get($colors, "white");
+                background-color: map.get($bg-colors, "primary-dark");
+                padding: 0.2em 0.7em;
+                border-radius: 100vh;
+            }
+        }
+
+        &.active {
+            color: map.get($colors, "neutral-darker");
+        }
+    }
+
+    &__avatar {
+        width: 1.25rem;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: outline 0.2s map.get($animation-types, "default");
+        outline-color: #ffffff;
+
+        &:hover,
+        &:focus {
+            outline: 1px solid map.get($colors, "primary-dark");
+        }
+    }
+
+    &__logo-container {
+        margin-left: 2rem;
+    }
+}
+
+.primary-navigation {
+    margin: 0;
+    & > a {
+        text-decoration: none;
+        transition: color 0.2s map.get($animation-types, "default");
+
+        &:hover,
+        &:focus,
+        &.active {
+            color: map.get($colors, "neutral-darker");
+        }
+    }
+
+    & li {
+        color: inherit;
+    }
+}
+
+.burger,
+.close-burger {
+    height: 15px;
+    color: map.get($colors, "neutral-dark");
+    cursor: pointer;
+    position: absolute;
+    transition: color 0.2s map.get($animation-types, "default");
+    &:hover,
+    &:focus {
+        color: map.get($colors, "neutral-darker");
+    }
+}
+
+.close-burger {
+    top: 1.625rem;
+    z-index: 20;
+    position: absolute;
+}
+
+@media (max-width: map.get($media-breakpoints, "tablet")) {
+    .primary-navigation {
+        position: relative;
+        position: fixed;
+        flex-direction: column;
+        z-index: 10;
+        left: -70%;
+        width: 70%;
+        top: 0;
+        bottom: 0;
+        padding: 6rem 1.5rem;
+        background-color: #ffffff;
+        transition: left 0.3s map.get($animation-types, "default");
+
+        &[data-visible="true"] {
+            left: 0;
+            box-shadow: 0 0 0 100vh map.get($bg-colors, "black");
+        }
+
+        & > a {
+            padding: 0.5rem 1rem 0.5rem 0;
+            width: max-content;
+            color: map.get($colors, "neutral-darker");
+            font-weight: map.get($font-weights, "bold");
+        }
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "tablet")) {
+    .primary-header {
+        padding-block: 0;
+        --gap: min(4vw, 3rem);
+        max-width: 90rem;
+        margin-inline: auto;
+        border-bottom: 1px solid map.get($colors, "neutral-medium");
+
+        &__avatar {
+            width: 3rem;
+        }
+    }
+
+    .primary-navigation {
+        --gap: 0;
+        --padding-inline: min(1.5vw, 2rem);
+        padding: 0;
+        & > a {
+            padding-inline: var(--padding-inline, 1rem);
+            justify-content: center;
+            position: relative;
+            padding-block: 3rem;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -1px;
+                width: 0;
+                height: 4px;
+                background-color: map.get($colors, "primary-light");
+                transition: width 0.2s map.get($animation-types, "default"),
+                    background-color 0.2s map.get($animation-types, "default");
+            }
+
+            &.active::after {
+                background-color: map.get($colors, "primary-dark");
+            }
+
+            &:hover::after,
+            &:focus::after,
+            &.active::after {
+                width: 100%;
+            }
+        }
+    }
+
+    .burger,
+    .close-burger {
+        display: none;
+    }
+}
+
+@media (min-width: map.get($media-breakpoints, "1600")) {
+    .primary-header {
+        position: initial;
+
+        &__cart {
+            position: relative;
+        }
+    }
+}
