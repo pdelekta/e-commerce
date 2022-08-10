@@ -6,7 +6,12 @@ import { ReactComponent as NextIcon } from "../../../images/icon-next.svg";
 import Lightbox from "./lightbox/Lightbox";
 
 export default function Gallery({ productId, skeleton }) {
-    const images = useSelector(state => selectProductImages(state, productId)) || [{}, {}, {}, {}];
+    const images = useSelector(state => selectProductImages(state, productId)) || [
+        { id: 1 },
+        { id: 2 },
+        { id: 3 },
+        { id: 4 },
+    ];
 
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);

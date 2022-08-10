@@ -1,0 +1,482 @@
+[
+    {
+        "fullResolution": "https://yasertarek.github.io/ecommerce-product-page/images/image-product-1.jpg",
+        "thumbnail": "https://yasertarek.github.io/ecommerce-product-page/images/image-product-1-thumbnail.jpg",
+        "id": "1",
+        "productId": "1"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=2",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=2",
+        "id": "2",
+        "productId": "2"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=3",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=3",
+        "id": "3",
+        "productId": "3"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=4",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=4",
+        "id": "4",
+        "productId": "4"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=5",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=5",
+        "id": "5",
+        "productId": "5"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=6",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=6",
+        "id": "6",
+        "productId": "6"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=7",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=7",
+        "id": "7",
+        "productId": "7"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=8",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=8",
+        "id": "8",
+        "productId": "8"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=9",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=9",
+        "id": "9",
+        "productId": "9"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=10",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=10",
+        "id": "10",
+        "productId": "10"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=11",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=11",
+        "id": "11",
+        "productId": "11"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=12",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=12",
+        "id": "12",
+        "productId": "12"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=13",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=13",
+        "id": "13",
+        "productId": "13"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=14",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=14",
+        "id": "14",
+        "productId": "14"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=15",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=15",
+        "id": "15",
+        "productId": "15"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=16",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=16",
+        "id": "16",
+        "productId": "16"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=17",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=17",
+        "id": "17",
+        "productId": "17"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=18",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=18",
+        "id": "18",
+        "productId": "18"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=19",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=19",
+        "id": "19",
+        "productId": "19"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=20",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=20",
+        "id": "20",
+        "productId": "20"
+    },
+    {
+        "fullResolution": "https://yasertarek.github.io/ecommerce-product-page/images/image-product-2.jpg",
+        "thumbnail": "https://yasertarek.github.io/ecommerce-product-page/images/image-product-2-thumbnail.jpg",
+        "id": "21",
+        "productId": "1"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=22",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=22",
+        "id": "22",
+        "productId": "2"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=23",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=23",
+        "id": "23",
+        "productId": "3"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=24",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=24",
+        "id": "24",
+        "productId": "4"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=25",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=25",
+        "id": "25",
+        "productId": "5"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=26",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=26",
+        "id": "26",
+        "productId": "6"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=27",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=27",
+        "id": "27",
+        "productId": "7"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=28",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=28",
+        "id": "28",
+        "productId": "8"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=29",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=29",
+        "id": "29",
+        "productId": "9"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=30",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=30",
+        "id": "30",
+        "productId": "10"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=31",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=31",
+        "id": "31",
+        "productId": "11"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=32",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=32",
+        "id": "32",
+        "productId": "12"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=33",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=33",
+        "id": "33",
+        "productId": "13"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=34",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=34",
+        "id": "34",
+        "productId": "14"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=35",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=35",
+        "id": "35",
+        "productId": "15"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=36",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=36",
+        "id": "36",
+        "productId": "16"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=37",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=37",
+        "id": "37",
+        "productId": "17"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=38",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=38",
+        "id": "38",
+        "productId": "18"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=39",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=39",
+        "id": "39",
+        "productId": "19"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=40",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=40",
+        "id": "40",
+        "productId": "20"
+    },
+    {
+        "fullResolution": "https://yasertarek.github.io/ecommerce-product-page/images/image-product-3.jpg",
+        "thumbnail": "https://yasertarek.github.io/ecommerce-product-page/images/image-product-3-thumbnail.jpg",
+        "id": "41",
+        "productId": "1"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=42",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=42",
+        "id": "42",
+        "productId": "2"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=43",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=43",
+        "id": "43",
+        "productId": "3"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=44",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=44",
+        "id": "44",
+        "productId": "4"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=45",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=45",
+        "id": "45",
+        "productId": "5"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=46",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=46",
+        "id": "46",
+        "productId": "6"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=47",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=47",
+        "id": "47",
+        "productId": "7"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=48",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=48",
+        "id": "48",
+        "productId": "8"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=49",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=49",
+        "id": "49",
+        "productId": "9"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=50",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=50",
+        "id": "50",
+        "productId": "10"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=51",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=51",
+        "id": "51",
+        "productId": "11"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=52",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=52",
+        "id": "52",
+        "productId": "12"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=53",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=53",
+        "id": "53",
+        "productId": "13"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=54",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=54",
+        "id": "54",
+        "productId": "14"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=55",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=55",
+        "id": "55",
+        "productId": "15"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=56",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=56",
+        "id": "56",
+        "productId": "16"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=57",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=57",
+        "id": "57",
+        "productId": "17"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=58",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=58",
+        "id": "58",
+        "productId": "18"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=59",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=59",
+        "id": "59",
+        "productId": "19"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=60",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=60",
+        "id": "60",
+        "productId": "20"
+    },
+    {
+        "fullResolution": "https://yasertarek.github.io/ecommerce-product-page/images/image-product-4.jpg",
+        "thumbnail": "https://yasertarek.github.io/ecommerce-product-page/images/image-product-4-thumbnail.jpg",
+        "id": "61",
+        "productId": "1"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=62",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=62",
+        "id": "62",
+        "productId": "2"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=63",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=63",
+        "id": "63",
+        "productId": "3"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=64",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=64",
+        "id": "64",
+        "productId": "4"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=65",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=65",
+        "id": "65",
+        "productId": "5"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=66",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=66",
+        "id": "66",
+        "productId": "6"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=67",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=67",
+        "id": "67",
+        "productId": "7"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=68",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=68",
+        "id": "68",
+        "productId": "8"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=69",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=69",
+        "id": "69",
+        "productId": "9"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=70",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=70",
+        "id": "70",
+        "productId": "10"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=71",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=71",
+        "id": "71",
+        "productId": "11"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=72",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=72",
+        "id": "72",
+        "productId": "12"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=73",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=73",
+        "id": "73",
+        "productId": "13"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=74",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=74",
+        "id": "74",
+        "productId": "14"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=75",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=75",
+        "id": "75",
+        "productId": "15"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=76",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=76",
+        "id": "76",
+        "productId": "16"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=77",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=77",
+        "id": "77",
+        "productId": "17"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=78",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=78",
+        "id": "78",
+        "productId": "18"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=79",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=79",
+        "id": "79",
+        "productId": "19"
+    },
+    {
+        "fullResolution": "http://loremflickr.com/800/800/sneaker?lock=80",
+        "thumbnail": "http://loremflickr.com/800/800/sneaker?lock=80",
+        "id": "80",
+        "productId": "20"
+    }
+]

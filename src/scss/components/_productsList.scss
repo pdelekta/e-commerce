@@ -1,0 +1,107 @@
+@use "../abstracts/variables" as *;
+@use "sass:map";
+
+.products-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-inline: 1.5rem;
+    gap: 1rem;
+
+    @media (min-width: map.get($media-breakpoints, "tablet")) {
+        grid-template-columns: repeat(auto-fit, minmax(max(12rem, 20vw), 1fr));
+    }
+
+    @media (min-width: map.get($media-breakpoints, "desktop")) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.product-card-wrapper {
+    border-radius: $product-card-border-radius;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.product-card {
+    --gap: none;
+    flex-direction: column;
+    border-radius: $product-card-border-radius;
+    transition: box-shadow 0.2s map.get($animation-types, "default");
+    background-color: map.get($bg-colors, "white");
+
+    & > :not(:first-child) {
+        margin-top: 1rem;
+    }
+
+    &__image-wrapper {
+        border-radius: $product-card-border-radius;
+        position: relative;
+        aspect-ratio: 1;
+    }
+
+    &__image {
+        border-radius: $product-card-border-radius;
+        aspect-ratio: 1;
+    }
+
+    &__brand {
+        padding-inline: $product-card-padding-inline;
+        height: 0;
+        overflow: hidden;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: height 0.2s map.get($animation-types, "default"),
+            transform 0.2s map.get($animation-types, "default"),
+            opacity 0.2s map.get($animation-types, "default");
+    }
+
+    #product-card-brand {
+        margin-top: 0;
+    }
+
+    &__name {
+        padding-inline: $product-card-padding-inline;
+        height: 2rem;
+        max-height: 2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__price {
+        padding-inline: $product-card-padding-inline;
+        --gap: 0.5rem;
+        align-items: center;
+    }
+
+    &__price-beforeDiscount {
+        text-decoration: line-through;
+    }
+
+    &:hover {
+        box-shadow: 0 0px 16px -6px hsl(0deg 0% 0% / 50%);
+        position: absolute;
+        z-index: 5;
+
+        & > :last-child {
+            margin-bottom: $product-card-gap;
+        }
+
+        .product-card__brand {
+            opacity: 1;
+            transform: translateY(0);
+            height: auto;
+        }
+        #product-card-brand {
+            margin-top: $product-card-gap;
+        }
+    }
+}
+
+.discount-label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+}

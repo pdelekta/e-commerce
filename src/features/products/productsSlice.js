@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialProducts = {
-    allProducts: [],
+    entities: [],
     isLoading: false,
-    hasError: false,
+    error: "",
 };
 
 export const fetchProductById = createAsyncThunk("products/loadProduct", async id => {
@@ -27,32 +27,32 @@ export const productsSlice = createSlice({
     extraReducers: {
         [fetchProductById.pending]: state => {
             state.isLoading = true;
-            state.hasError = false;
+            state.error = "";
         },
         [fetchProductById.fulfilled]: (state, action) => {
             state.isLoading = false;
-            state.hasError = false;
-            state.allProducts.forEach(product => {
+            state.error = "";
+            state.entities.forEach(product => {
                 if (product.id === parseInt(action.payload.id)) return state;
             });
-            state.allProducts.push(action.payload);
+            state.entities.push(action.payload);
         },
-        [fetchProductById.rejected]: state => {
+        [fetchProductById.rejected]: (state, action) => {
             state.isLoading = false;
-            state.hasError = true;
+            state.error = action.error.message;
         },
         [fetchProducts.pending]: state => {
             state.isLoading = true;
-            state.hasError = false;
+            state.error = "";
         },
         [fetchProducts.fulfilled]: (state, action) => {
             state.isLoading = false;
-            state.hasError = false;
-            state.allProducts = action.payload;
+            state.error = "";
+            state.entities = action.payload;
         },
-        [fetchProducts.rejected]: state => {
+        [fetchProducts.rejected]: (state, action) => {
             state.isLoading = false;
-            state.hasError = true;
+            state.error = action.error.message;
         },
     },
 });
@@ -66,18 +66,21 @@ export const { addProduct } = productsSlice.actions;
 // Selectors
 
 export const selectProduct = (state, id) => {
-    return state.products.allProducts.find(product => parseInt(product.id) === id);
+    return state.products.entities.find(product => parseInt(product.id) === id);
 };
 
+export const selectAllProducts = state => state.products.entities;
+
 export const selectProductImages = (state, id) => {
-    return state.products.allProducts.find(product => parseInt(product.id) === id)?.images;
+    return state.products.entities.find(product => parseInt(product.id) === id)?.images;
 };
 
 export const selectIsProductById = (state, id) => {
-    // debugger;
-    return state.products.allProducts.some(product => parseInt(product.id) === id);
+    return state.products.entities.some(product => parseInt(product.id) === id);
 };
 
-export const selectIsProductsLoading = state => state.products.isLoading;
+export const selectIsProductsLoading = state => {
+    return state.products.isLoading;
+};
 
-export const selectHasProductsError = state => state.products.hasError;
+export const selectProductsError = state => state.products.error;

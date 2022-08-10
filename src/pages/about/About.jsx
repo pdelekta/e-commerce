@@ -1,3 +1,10 @@
+import { useResetHeaderModals } from "../../utilities";
+
 export default function About() {
-    return <p className="fs-600 text-neutral-darker fw-bold">About</p>;
+    useResetHeaderModals();
+    return (
+        <div className="category-container | flex">
+            <h1 className="category-title | fs-600 text-neutral-darker fw-bold">About</h1>
+        </div>
+    );
 }

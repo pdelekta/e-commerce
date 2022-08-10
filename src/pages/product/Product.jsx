@@ -1,38 +1,32 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import {
     selectIsProductById,
     fetchProductById,
     selectIsProductsLoading,
-    selectHasProductsError,
+    selectProductsError,
 } from "../../features/products/productsSlice";
+import { useResetHeaderModals } from "../../utilities";
 import ProductDetails from "./productDetails/ProductDetails";
 import Gallery from "./gallery/Gallery";
 export default function Product() {
-    const [error, setError] = useState("");
+    const error = useSelector(selectProductsError);
     const dispatch = useDispatch();
     let { id } = useParams();
     const productId = parseInt(id);
+    useResetHeaderModals(productId);
 
     const isProductById = useSelector(state => selectIsProductById(state, productId));
     const isProductsLoading = useSelector(selectIsProductsLoading);
-    const hasProductsError = useSelector(selectHasProductsError);
+    const productsError = useSelector(selectProductsError);
 
-    useEffect(() => {
-        if (isProductById && !hasProductsError) setError("");
-    }, [isProductById, hasProductsError]);
+    if (!productId) return <Navigate replace to="/product/1" />;
 
-    if (!isProductById && !hasProductsError) {
-        const response = dispatch(fetchProductById(productId)).unwrap();
-        response.then().catch(error => {
-            setError(error.message);
-        });
+    if (!isProductById && !productsError && !isProductsLoading) {
+        dispatch(fetchProductById(productId));
     }
 
-    if (hasProductsError && error) return <p>{error}</p>;
-
-    return hasProductsError && error ? (
+    return productsError && error ? (
         <p>{error}</p>
     ) : (
         <>

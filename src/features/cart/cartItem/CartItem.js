@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { removeItem } from "../cartSlice";
 import { priceFormatter, getShortenedName } from "../../../utilities";
+import { Link } from "react-router-dom";
 import { ReactComponent as IconDelete } from "../../../images/icon-delete.svg";
 
 export default function CartItem({ id, name, price, quantity, thumbnail }) {
@@ -14,7 +15,7 @@ export default function CartItem({ id, name, price, quantity, thumbnail }) {
 
     return (
         <li className="cart-item | flex">
-            <a className="cart-item__link | flex" href=".">
+            <Link className="cart-item__link | flex" to={`/product/${id}`}>
                 <img className="cart-item__image" src={thumbnail} alt="product-thumbnail" />
                 <div className="cart-item__text | flex">
                     <span className="cart-item__name | text-neutral-dark">{shortName}</span>
@@ -28,7 +29,7 @@ export default function CartItem({ id, name, price, quantity, thumbnail }) {
                         </span>
                     </div>
                 </div>
-            </a>
+            </Link>
             <IconDelete className="cart-item__delete" onClick={() => handleRemoveItem(id)} />
         </li>
     );

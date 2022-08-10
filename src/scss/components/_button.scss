@@ -17,6 +17,10 @@
     &:disabled {
         background-color: map.get($colors, "neutral");
         box-shadow: none;
+        cursor: default;
+        &:hover {
+            opacity: initial;
+        }
     }
 
     &:hover,

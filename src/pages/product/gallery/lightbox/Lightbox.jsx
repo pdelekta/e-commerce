@@ -26,7 +26,7 @@ export default function Lightbox({
     const thumbnailElements = images.map((image, index) => {
         return (
             <div
-                key={image.id}
+                key={image.fullResolution}
                 className={`lightbox__thumbnails-item-wrapper ${
                     selectedImageIndex === index ? "active" : ""
                 }`}

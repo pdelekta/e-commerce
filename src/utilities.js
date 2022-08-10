@@ -1,9 +1,14 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setMenuOpen, toggleCartOpen } from "./features/header/headerSlice";
+
 export const priceFormatter = price => {
     if (price) return `$${price.toFixed(2)}`;
 };
 
 export const discountGenerator = (regularPrice, discountedPrice) => {
-    return `-${(100 - (discountedPrice / regularPrice) * 100).toFixed()}%`;
+    const discount = Math.ceil(100 - (discountedPrice / regularPrice) * 100);
+    return `-${discount}%`;
 };
 
 export const getShortenedName = (name, length) => {
@@ -26,4 +31,13 @@ export const JSONNumbersParser = object => {
         }
     }
     return newObject;
+};
+
+export const useResetHeaderModals = (dependency = "") => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(setMenuOpen(false));
+        dispatch(toggleCartOpen(false));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dependency]);
 };

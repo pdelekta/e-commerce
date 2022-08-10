@@ -12,6 +12,8 @@
     justify-content: center;
     background-color: map.get($bg-colors, "white");
     transition: transform 0.2s map.get($animation-types, "default");
+    box-shadow: 0 0px 16px -6px hsl(0deg 0% 0% / 50%);
+    z-index: 9;
     cursor: pointer;
 
     &__icon {

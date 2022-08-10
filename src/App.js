@@ -1,19 +1,19 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./features/header/Header";
 import Product from "./pages/product/Product";
-import Collection from "./pages/collection/Collection";
+import Collections from "./pages/collection/Collections";
 import Men from "./pages/men/Men";
 import Women from "./pages/women/Women";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import PageNotFound from "./pages/pageNotFound/PageNotFound";
-
 export default function App() {
     return (
         <>
             <Navbar />
             <main className="main-container | flex">
                 <Routes>
+                    <Route path="/" exact element={<Navigate replace to="/collections" />} />
                     <Route
                         exact
                         path="/product"
@@ -32,7 +32,7 @@ export default function App() {
                             }
                         />
                     </Route>
-                    <Route path="/collection" element={<Collection />} />
+                    <Route path="/collections" element={<Collections />} />
                     <Route path="/men" element={<Men />} />
                     <Route path="/women" element={<Women />} />
                     <Route path="/about" element={<About />} />

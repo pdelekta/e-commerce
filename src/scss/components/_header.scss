@@ -93,12 +93,12 @@
     position: absolute;
 }
 
-@media (max-width: map.get($media-breakpoints, "tablet")) {
+@media (max-width: calc(map.get($media-breakpoints, "tablet") - 0.0625em)) {
     .primary-navigation {
         position: relative;
         position: fixed;
         flex-direction: column;
-        z-index: 10;
+        z-index: 11;
         left: -70%;
         width: 70%;
         top: 0;

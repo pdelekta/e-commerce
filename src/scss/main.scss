@@ -14,11 +14,13 @@
 /* components imports */
 @use "./components/header";
 @use "./components/gallery";
-@use "./components/product-details";
+@use "./components/productDetails";
 @use "./components/button";
 @use "./components/cart";
 @use "./components/lightbox";
-@use "./components//pageNotFound";
+@use "./components/pageNotFound";
+@use "./components/productsList";
 
 /* layout imports */
-@use "./layout/main.scss";
+@use "./layout/_main.scss";
+@use "./layout/_category.scss";

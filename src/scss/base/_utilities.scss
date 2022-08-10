@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "sass:map";
 
 @each $color, $value in $colors {
     .text-#{$color} {
@@ -16,6 +17,10 @@
     text-transform: uppercase;
 }
 
+.letter-spacing-1 {
+    letter-spacing: 1.2px;
+}
+
 .flow > *:where(:not(:first-child)) {
     margin-top: var(--flow-space, 1rem);
 }
@@ -27,6 +32,43 @@
 
 .skeleton {
     animation: skeleton-loading 1s linear infinite alternate;
+
+    &-line {
+        border-radius: 0.5rem;
+
+        &--brand {
+            width: 24ch;
+            height: map.get($font-sizes-mobile, "300");
+        }
+
+        &--title {
+            width: 80%;
+            height: map.get($font-sizes-mobile, "700");
+
+            &:last-child {
+                width: 50%;
+            }
+        }
+
+        &--text {
+            width: 100%;
+            height: map.get($font-sizes-mobile, "400");
+
+            &:last-child {
+                width: 40%;
+            }
+        }
+
+        @media (min-width: map.get($media-breakpoints, "tablet")) {
+            &:first-child {
+                margin-top: 0.5rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
 }
 
 @keyframes skeleton-loading {
