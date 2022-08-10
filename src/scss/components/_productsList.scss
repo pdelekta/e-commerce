@@ -78,7 +78,7 @@
         text-decoration: line-through;
     }
 
-    &:hover {
+    &:not(.not-to-hover):hover {
         box-shadow: 0 0px 16px -6px hsl(0deg 0% 0% / 50%);
         position: absolute;
         z-index: 5;

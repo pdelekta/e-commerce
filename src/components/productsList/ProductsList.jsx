@@ -67,7 +67,7 @@ export default function ProductsList() {
     const skeletonElements = emptyProducts.map(product => {
         return (
             <div key={product.id} className="product-card-wrapper">
-                <div className="product-card">
+                <div className="product-card not-to-hover">
                     <div className="product-card__image-wrapper">
                         <div className="product-card__image | skeleton"></div>
                     </div>
