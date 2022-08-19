@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux/es/exports";
 import { selectProduct } from "../../../features/products/productsSlice";
 import { addItem } from "../../../features/cart/cartSlice";
 import { toggleCartOpen } from "../../../features/header/headerSlice";
-import { priceFormatter, discountGenerator, JSONNumbersParser } from "../../../utilities";
+import { priceFormatter, discountGenerator } from "../../../utilities";
 import { ReactComponent as CartIcon } from "../../../images/icon-cart.svg";
 import minusIcon from "../../../images/icon-minus.svg";
 import plusIcon from "../../../images/icon-plus.svg";
@@ -19,7 +19,7 @@ export default function ProductDetails({ productId, skeleton }) {
         description,
         price: [price] = [],
         images,
-    } = JSONNumbersParser(useSelector(state => selectProduct(state, productId))) || {};
+    } = useSelector(state => selectProduct(state, productId)) || {};
 
     const [quantity, setQuantity] = useState(0);
     const handleQuantityChange = typeOfChange => {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectProductImages } from "../../../features/products/productsSlice";
 import { ReactComponent as PrevIcon } from "../../../images/icon-previous.svg";
@@ -15,6 +15,10 @@ export default function Gallery({ productId, skeleton }) {
 
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+    useEffect(() => {
+        setSelectedImageIndex(0);
+    }, [productId]);
 
     const handleOpenOnClick = () => {
         if (window.innerWidth > 416) setIsLightboxOpen(true);

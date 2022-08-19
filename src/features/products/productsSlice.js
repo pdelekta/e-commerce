@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { JSONNumbersParser } from "../../utilities";
 
 const initialProducts = {
     entities: [],
@@ -9,13 +10,13 @@ const initialProducts = {
 export const fetchProductById = createAsyncThunk("products/loadProduct", async id => {
     const response = await fetch(`https://62ecca7855d2bd170e86e852.mockapi.io/api/v1/products/${id}`);
     const json = await response.json();
-    return json;
+    return JSONNumbersParser(json);
 });
 
 export const fetchProducts = createAsyncThunk("products/loadProducts", async () => {
     const response = await fetch(`https://62ecca7855d2bd170e86e852.mockapi.io/api/v1/products`);
     const json = await response.json();
-    return json;
+    return JSONNumbersParser(json);
 });
 
 export const productsSlice = createSlice({
@@ -30,12 +31,16 @@ export const productsSlice = createSlice({
             state.error = "";
         },
         [fetchProductById.fulfilled]: (state, action) => {
+            let isAlreadyInState = false;
             state.isLoading = false;
             state.error = "";
-            state.entities.forEach(product => {
-                if (product.id === parseInt(action.payload.id)) return state;
+            state.entities.forEach((product, index) => {
+                if (parseInt(product.id) === parseInt(action.payload.id)) {
+                    state.entities[index] = action.payload;
+                    isAlreadyInState = true;
+                }
             });
-            state.entities.push(action.payload);
+            if (!isAlreadyInState) state.entities.push(action.payload);
         },
         [fetchProductById.rejected]: (state, action) => {
             state.isLoading = false;
