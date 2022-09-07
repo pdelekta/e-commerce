@@ -1,18 +1,13 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectProductImages } from "../../../features/products/productsSlice";
 import { ReactComponent as PrevIcon } from "../../../images/icon-previous.svg";
 import { ReactComponent as NextIcon } from "../../../images/icon-next.svg";
 import Lightbox from "./lightbox/Lightbox";
 
-export default function Gallery({ productId, skeleton }) {
-    const images = useSelector(state => selectProductImages(state, productId)) || [
-        { id: 1 },
-        { id: 2 },
-        { id: 3 },
-        { id: 4 },
-    ];
-
+export default function Gallery({
+    productId,
+    skeleton,
+    images = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
+}) {
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 

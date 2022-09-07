@@ -5,10 +5,11 @@ import {
     fetchProductById,
     selectIsProductsLoading,
     selectProductsError,
+    selectProduct,
 } from "../../features/products/productsSlice";
 import { useResetHeaderModals } from "../../utilities";
-import ProductDetails from "./productDetails/ProductDetails";
-import Gallery from "./gallery/Gallery";
+import ProductDetails from "../../components/productPage/productDetails/ProductDetails";
+import Gallery from "../../components/productPage/gallery/Gallery";
 import Error from "../../components/Error";
 
 export default function Product() {
@@ -16,11 +17,11 @@ export default function Product() {
     let { id } = useParams();
     const productId = parseInt(id);
     useResetHeaderModals(productId);
+    let product = useSelector(state => selectProduct(state, productId)) || {};
 
     const isProductById = useSelector(state => selectIsProductById(state, productId));
     const isProductsLoading = useSelector(selectIsProductsLoading);
     const productsError = useSelector(selectProductsError);
-    // debugger;
     if (!productId) return <Navigate replace to="/product/1" />;
 
     if (!isProductById && !productsError && !isProductsLoading) {
@@ -31,8 +32,8 @@ export default function Product() {
         <Error error={productsError} />
     ) : (
         <>
-            <Gallery productId={productId} skeleton={isProductsLoading} />
-            <ProductDetails productId={productId} skeleton={isProductsLoading} />
+            <Gallery productId={productId} skeleton={isProductsLoading} images={product.images} />
+            <ProductDetails productId={productId} skeleton={isProductsLoading} product={product} />
         </>
     );
 }
