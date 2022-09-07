@@ -29,11 +29,12 @@ $colors: (
     "primary-dark": hsl(26 100% 55%),
     "primary-light": hsl(25 100% 80%),
     "primary-lighter": hsl(25 100% 94%),
-    "neutral-darker": hsl(220 13% 13%),
     "neutral-dark": hsl(219 9% 45%),
+    "neutral-darker": hsl(220 13% 13%),
     "neutral": hsl(220 14% 75%),
     "neutral-medium": hsl(220 14% 75% / 0.25),
     "white": hsl(0 0% 100%),
+    "error": hsl(0 72% 48%),
 );
 
 $bg-colors: (
@@ -43,6 +44,7 @@ $bg-colors: (
     "black": hsl(0 0% 0% / 0.75),
     "black-light": hsl(0 0% 0% / 0.4),
     "white": hsl(0 0% 100%),
+    "error": hsl(0 72% 48% / 0.1),
 );
 
 $animation-types: (

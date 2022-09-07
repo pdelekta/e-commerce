@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { JSONNumbersParser } from "../../utilities";
+import { fetchAPI } from "../../api/api";
 
 const initialProducts = {
     entities: [],
@@ -7,17 +7,11 @@ const initialProducts = {
     error: "",
 };
 
-export const fetchProductById = createAsyncThunk("products/loadProduct", async id => {
-    const response = await fetch(`https://62ecca7855d2bd170e86e852.mockapi.io/api/v1/products/${id}`);
-    const json = await response.json();
-    return JSONNumbersParser(json);
-});
+// Async Action Creators
 
-export const fetchProducts = createAsyncThunk("products/loadProducts", async () => {
-    const response = await fetch(`https://62ecca7855d2bd170e86e852.mockapi.io/api/v1/products`);
-    const json = await response.json();
-    return JSONNumbersParser(json);
-});
+export const fetchProductById = createAsyncThunk("products/loadProduct", fetchAPI);
+
+export const fetchProducts = createAsyncThunk("products/loadProducts", fetchAPI);
 
 export const productsSlice = createSlice({
     name: "products",
@@ -44,7 +38,7 @@ export const productsSlice = createSlice({
         },
         [fetchProductById.rejected]: (state, action) => {
             state.isLoading = false;
-            state.error = action.error.message;
+            state.error = action.error;
         },
         [fetchProducts.pending]: state => {
             state.isLoading = true;
@@ -57,7 +51,7 @@ export const productsSlice = createSlice({
         },
         [fetchProducts.rejected]: (state, action) => {
             state.isLoading = false;
-            state.error = action.error.message;
+            state.error = action.error;
         },
     },
 });
@@ -70,11 +64,11 @@ export const { addProduct } = productsSlice.actions;
 
 // Selectors
 
+export const selectAllProducts = state => state.products.entities;
+
 export const selectProduct = (state, id) => {
     return state.products.entities.find(product => parseInt(product.id) === id);
 };
-
-export const selectAllProducts = state => state.products.entities;
 
 export const selectProductImages = (state, id) => {
     return state.products.entities.find(product => parseInt(product.id) === id)?.images;

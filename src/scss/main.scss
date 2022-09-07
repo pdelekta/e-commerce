@@ -20,6 +20,7 @@
 @use "./components/lightbox";
 @use "./components/pageNotFound";
 @use "./components/productsList";
+@use "./components/error";
 
 /* layout imports */
 @use "./layout/_main.scss";

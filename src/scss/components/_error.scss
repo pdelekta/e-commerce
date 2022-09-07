@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as *;
+@use "sass:map";
+
+.error-container {
+    word-wrap: break-word;
+    --gap: 1rem;
+    flex-grow: 1;
+    flex-direction: column;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+
+    @media (min-width: map.get($media-breakpoints, "tablet")) {
+        margin: 0;
+    }
+}
