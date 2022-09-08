@@ -10,6 +10,8 @@
     &__main-photo-wrapper {
         width: 100%;
         aspect-ratio: 1;
+        overflow: hidden;
+        position: relative;
     }
 
     &__main-photo {

@@ -86,32 +86,47 @@ export default function ProductDetails({ productId, skeleton, product }) {
                     </>
                 )}
             </p>
-            <div className="price-container | flex">
-                {!skeleton && (
+            {!skeleton && (
+                <div className="price-container | flex">
                     <div className="price-container__main-price | flex">
                         <span className="price-container__price | fs-600 fw-bold text-neutral-darker">
-                            {priceFormatter(price?.valid)}
+                            {priceFormatter(price.valid)}
                         </span>
-                        {price?.beforeDiscount > price?.valid && (
+                        {price.beforeDiscount > price.valid && (
                             <span className="price-container__discount-amount | bg-primary-light text-primary-dark fw-bold">
                                 {discountGenerator(price.beforeDiscount, price.valid)}
                             </span>
                         )}
                     </div>
-                )}
-                {price?.beforeDiscount > price?.valid && (
-                    <span className="price-container__old-price | text-neutral fw-bold">
-                        {priceFormatter(price.beforeDiscount)}
-                    </span>
-                )}
-            </div>
+
+                    {price?.beforeDiscount > price?.valid && (
+                        <span className="price-container__old-price | text-neutral fw-bold">
+                            {priceFormatter(price.beforeDiscount)}
+                        </span>
+                    )}
+                </div>
+            )}
             <div className="product-cta | flex">
                 <div className="product-cta__quantity | flex bg-neutral-light">
-                    <img src={minusIcon} alt="minus" onClick={() => handleQuantityChange("-")} />
-                    <span className="product-cta__quantity-value text-neutral-darker fw-bold">
-                        {!skeleton ? quantity : " "}
+                    <img
+                        src={minusIcon}
+                        className={skeleton ? "opacity-0" : null}
+                        alt="minus"
+                        onClick={() => handleQuantityChange("-")}
+                    />
+                    <span
+                        className={`product-cta__quantity-value fw-bold ${
+                            skeleton ? "text-neutral" : "text-neutral-darker"
+                        }`}
+                    >
+                        {!skeleton ? quantity : "0"}
                     </span>
-                    <img src={plusIcon} alt="plus" onClick={() => handleQuantityChange("+")} />
+                    <img
+                        src={plusIcon}
+                        className={skeleton ? "opacity-0" : null}
+                        alt="plus"
+                        onClick={() => handleQuantityChange("+")}
+                    />
                 </div>
                 <button
                     className="btn btn--add-to-cart | flex bg-primary-dark text-white fw-bold"

@@ -56,9 +56,9 @@ export default function Gallery({
         return (
             <div
                 key={image?.id}
-                className={`gallery__thumbnails__item-wrapper | ${
+                className={`gallery__thumbnails__item-wrapper | skeleton ${
                     selectedImageIndex === index && !skeleton ? "active" : ""
-                } ${skeleton ? "skeleton" : undefined}`}
+                }`}
             >
                 {!skeleton && (
                     <img
@@ -72,18 +72,16 @@ export default function Gallery({
             </div>
         );
     });
-
     return (
         <section className="gallery | flex">
-            <div className={`gallery__main-photo-wrapper | ${skeleton ? "skeleton" : ""}`}>
-                {!skeleton && (
-                    <img
-                        src={images[selectedImageIndex].fullResolution}
-                        className={"gallery__main-photo"}
-                        alt="product"
-                        onClick={handleOpenOnClick}
-                    />
-                )}
+            <div className={`gallery__main-photo-wrapper | ${!skeleton ? "skeleton" : ""}`}>
+                {skeleton && <span className={`skeleton ${skeleton && "skeleton-image"}`}></span>}
+                <img
+                    src={images[selectedImageIndex].fullResolution}
+                    className={`gallery__main-photo | ${skeleton ? "opacity-0" : ""}`}
+                    alt="product"
+                    onClick={handleOpenOnClick}
+                />
                 {selectedImageIndex > 0 && !skeleton && (
                     <button className="prev-button" onClick={() => handleImageButtons("decrement")}>
                         <PrevIcon className="prev-button__icon" />

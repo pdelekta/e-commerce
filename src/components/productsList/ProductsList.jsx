@@ -34,7 +34,7 @@ export default function ProductsList() {
         return (
             <Link key={id} className="product-card-wrapper" to={`../product/${id}`}>
                 <div className="product-card | flex">
-                    <div className="product-card__image-wrapper">
+                    <div className="product-card__image-wrapper | skeleton">
                         <img className="product-card__image" src={image.fullResolution} alt="product" />
                         {price.beforeDiscount > price.valid && (
                             <span className="discount-label | fs-300 bg-primary-light text-primary-dark fw-bold">
