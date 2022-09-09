@@ -1,21 +1,10 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-    fetchProducts,
-    selectAllProducts,
-    selectIsProductsLoading,
-    selectProductsError,
-} from "../../features/products/productsSlice";
-import { priceFormatter, discountGenerator, JSONNumbersParser } from "../../utilities";
-import Error from "../Error";
+import { selectIsProductsLoading } from "../../features/products/productsSlice";
+import { priceFormatter, discountGenerator } from "../../utilities";
 
-export default function ProductsList() {
-    const dispatch = useDispatch();
-
+export default function ProductsList({ products = [] }) {
     const isProductsLoading = useSelector(selectIsProductsLoading);
-    const productsError = useSelector(selectProductsError);
-    const products = JSONNumbersParser(useSelector(selectAllProducts)) || [];
     const emptyProducts = [
         { id: 1 },
         { id: 2 },
@@ -27,11 +16,6 @@ export default function ProductsList() {
         { id: 8 },
         { id: 9 },
     ];
-
-    useEffect(() => {
-        dispatch(fetchProducts());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     const productsElements = products?.map(({ id, name, brand, images: [image], price: [price] }) => {
         return (
@@ -87,9 +71,7 @@ export default function ProductsList() {
         );
     });
 
-    return productsError ? (
-        <Error error={productsError} />
-    ) : (
+    return (
         <section className="products-list">
             {isProductsLoading ? skeletonElements : productsElements}
         </section>

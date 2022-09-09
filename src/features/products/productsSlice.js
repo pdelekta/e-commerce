@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createSelector } from "@reduxjs/toolkit";
 import { fetchAPI } from "../../api/api";
 
 const initialProducts = {
@@ -83,3 +83,12 @@ export const selectIsProductsLoading = state => {
 };
 
 export const selectProductsError = state => state.products.error;
+
+export const selectProductsByCategory = createSelector(
+    [selectAllProducts, (state, category) => category, selectIsProductsLoading],
+    (products, category, isProductsLoading) => {
+        if (!isProductsLoading) {
+            return products.filter(product => product.category === category);
+        }
+    }
+);
