@@ -5,13 +5,16 @@ import {
     fetchProducts,
     selectAllProducts,
     selectIsProductsLoading,
+    selectProductsError,
 } from "../../features/products/productsSlice";
 import { priceFormatter, discountGenerator, JSONNumbersParser } from "../../utilities";
+import Error from "../Error";
 
 export default function ProductsList() {
     const dispatch = useDispatch();
 
     const isProductsLoading = useSelector(selectIsProductsLoading);
+    const productsError = useSelector(selectProductsError);
     const products = JSONNumbersParser(useSelector(selectAllProducts)) || [];
     const emptyProducts = [
         { id: 1 },
@@ -84,7 +87,9 @@ export default function ProductsList() {
         );
     });
 
-    return (
+    return productsError ? (
+        <Error error={productsError} />
+    ) : (
         <section className="products-list">
             {isProductsLoading ? skeletonElements : productsElements}
         </section>
