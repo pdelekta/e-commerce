@@ -3,5 +3,5 @@ import { useResetHeaderModals } from "../../utilities";
 
 export default function Collection() {
     useResetHeaderModals();
-    return <CategoryPage header="Collection" />;
+    return <CategoryPage header="Collections" />;
 }
