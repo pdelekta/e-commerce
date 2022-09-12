@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import {
@@ -17,23 +18,28 @@ export default function Product() {
     let { id } = useParams();
     const productId = parseInt(id);
     useResetHeaderModals(productId);
-    const product = useSelector(state => selectProduct(state, productId)) || {};
 
+    useEffect(() => {
+        if (!isProductById) dispatch(fetchProductById(productId));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const product = useSelector(state => selectProduct(state, productId)) || {};
     const isProductById = useSelector(state => selectIsProductById(state, productId));
     const isProductsLoading = useSelector(selectIsProductsLoading);
     const productsError = useSelector(selectProductsError);
     if (!productId) return <Navigate replace to="/product/1" />;
 
-    if (!isProductById && !productsError && !isProductsLoading) {
-        dispatch(fetchProductById(productId));
-    }
+    // if (!isProductById && !productsError && !isProductsLoading) {
+    //     dispatch(fetchProductById(productId));
+    // }
 
     return productsError ? (
         <Error error={productsError} />
     ) : (
         <>
             <Gallery productId={productId} skeleton={isProductsLoading} images={product.images} />
-            <ProductDetails productId={productId} skeleton={isProductsLoading} product={product} />
+            <ProductDetails productId={productId} product={product} />
         </>
     );
 }

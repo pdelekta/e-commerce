@@ -1,20 +1,22 @@
 /* eslint no-eval: 0 */
 
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import PropTypes from "prop-types";
 import { addItem } from "../../../features/cart/cartSlice";
 import { toggleCartOpen } from "../../../features/header/headerSlice";
+import { selectIsProductsLoading } from "../../../features/products/productsSlice";
 import { priceFormatter, discountGenerator } from "../../../utilities";
 import { ReactComponent as CartIcon } from "../../../images/icon-cart.svg";
 import minusIcon from "../../../images/icon-minus.svg";
 import plusIcon from "../../../images/icon-plus.svg";
 
-export default function ProductDetails({ productId, skeleton, product }) {
+const ProductDetails = ({ productId, product }) => {
     const dispatch = useDispatch();
-
     const { brand, name, description, price: [price] = [], images } = product || {};
-
     const [quantity, setQuantity] = useState(0);
+    const skeleton = useSelector(selectIsProductsLoading);
+
     const handleQuantityChange = typeOfChange => {
         if (quantity === 0 && typeOfChange === "-") return;
         setQuantity(prevQuantity => eval(prevQuantity + typeOfChange + 1));
@@ -90,18 +92,18 @@ export default function ProductDetails({ productId, skeleton, product }) {
                 <div className="price-container | flex">
                     <div className="price-container__main-price | flex">
                         <span className="price-container__price | fs-600 fw-bold text-neutral-darker">
-                            {priceFormatter(price.valid)}
+                            {priceFormatter(price?.valid)}
                         </span>
-                        {price.beforeDiscount > price.valid && (
+                        {price?.beforeDiscount > price?.valid && (
                             <span className="price-container__discount-amount | bg-primary-light text-primary-dark fw-bold">
-                                {discountGenerator(price.beforeDiscount, price.valid)}
+                                {discountGenerator(price?.beforeDiscount, price?.valid)}
                             </span>
                         )}
                     </div>
 
                     {price?.beforeDiscount > price?.valid && (
                         <span className="price-container__old-price | text-neutral fw-bold">
-                            {priceFormatter(price.beforeDiscount)}
+                            {priceFormatter(price?.beforeDiscount)}
                         </span>
                     )}
                 </div>
@@ -139,4 +141,33 @@ export default function ProductDetails({ productId, skeleton, product }) {
             </div>
         </section>
     );
-}
+};
+
+ProductDetails.propTypes = {
+    product: PropTypes.exact({
+        id: PropTypes.number,
+        brand: PropTypes.string,
+        category: PropTypes.string,
+        description: PropTypes.string,
+        name: PropTypes.string,
+        price: PropTypes.arrayOf(
+            PropTypes.exact({
+                id: PropTypes.number,
+                productId: PropTypes.number,
+                beforeDiscount: PropTypes.number,
+                valid: PropTypes.number,
+            })
+        ),
+        images: PropTypes.arrayOf(
+            PropTypes.exact({
+                id: PropTypes.number,
+                productId: PropTypes.number,
+                fullResolution: PropTypes.string,
+                thumbnail: PropTypes.string,
+            })
+        ),
+    }),
+    productId: PropTypes.number.isRequired,
+};
+
+export default ProductDetails;

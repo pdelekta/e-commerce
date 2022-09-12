@@ -2,6 +2,8 @@ import { ReactComponent as CloseIcon } from "../../../../images/icon-close.svg";
 import { ReactComponent as PrevIcon } from "../../../../images/icon-previous.svg";
 import { ReactComponent as NextIcon } from "../../../../images/icon-next.svg";
 import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { selectIsProductsLoading } from "../../../../features/products/productsSlice";
 export default function Lightbox({
     handleImageButtons,
     handleSelectImage,
@@ -11,8 +13,8 @@ export default function Lightbox({
     images,
     selectedImageIndex,
     open,
-    isLoading,
 }) {
+    const isLoading = useSelector(selectIsProductsLoading);
     const dialog = useRef(null);
     useEffect(() => {
         if (open) {
@@ -21,7 +23,8 @@ export default function Lightbox({
         } else if (!open) dialog.current?.close();
     }, [open]);
 
-    if (isLoading) return;
+    // debugger;
+    if (isLoading === true || Object.keys(images[0]).length === 1) return;
 
     const thumbnailElements = images.map((image, index) => {
         return (

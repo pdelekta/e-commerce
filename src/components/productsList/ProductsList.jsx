@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { selectIsProductsLoading } from "../../features/products/productsSlice";
 import { priceFormatter, discountGenerator } from "../../utilities";
 
-export default function ProductsList({ products = [] }) {
+const ProductsList = ({ products = [] }) => {
     const isProductsLoading = useSelector(selectIsProductsLoading);
     const emptyProducts = [
         { id: 1 },
@@ -16,7 +17,7 @@ export default function ProductsList({ products = [] }) {
         { id: 8 },
         { id: 9 },
     ];
-
+    // debugger;
     const productsElements = products?.map(({ id, name, brand, images: [image], price: [price] }) => {
         return (
             <Link key={id} className="product-card-wrapper" to={`../product/${id}`}>
@@ -76,4 +77,34 @@ export default function ProductsList({ products = [] }) {
             {isProductsLoading ? skeletonElements : productsElements}
         </section>
     );
-}
+};
+
+ProductsList.propTypes = {
+    products: PropTypes.arrayOf(
+        PropTypes.exact({
+            id: PropTypes.number.isRequired,
+            brand: PropTypes.string.isRequired,
+            category: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            price: PropTypes.arrayOf(
+                PropTypes.exact({
+                    id: PropTypes.number.isRequired,
+                    productId: PropTypes.number.isRequired,
+                    beforeDiscount: PropTypes.number,
+                    valid: PropTypes.number.isRequired,
+                })
+            ).isRequired,
+            images: PropTypes.arrayOf(
+                PropTypes.exact({
+                    id: PropTypes.number.isRequired,
+                    productId: PropTypes.number.isRequired,
+                    fullResolution: PropTypes.string.isRequired,
+                    thumbnail: PropTypes.string.isRequired,
+                })
+            ).isRequired,
+        })
+    ),
+};
+
+export default ProductsList;

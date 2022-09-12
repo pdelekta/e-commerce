@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { ReactComponent as PrevIcon } from "../../../images/icon-previous.svg";
 import { ReactComponent as NextIcon } from "../../../images/icon-next.svg";
 import Lightbox from "./lightbox/Lightbox";
+import { useSelector } from "react-redux";
+import { selectIsProductsLoading } from "../../../features/products/productsSlice";
 
-export default function Gallery({
-    productId,
-    skeleton,
-    images = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
-}) {
+const Gallery = ({ productId, images = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] }) => {
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+    const skeleton = useSelector(selectIsProductsLoading);
 
     useEffect(() => {
         setSelectedImageIndex(0);
@@ -72,6 +72,7 @@ export default function Gallery({
             </div>
         );
     });
+
     return (
         <section className="gallery | flex">
             <div className={`gallery__main-photo-wrapper | ${!skeleton ? "skeleton" : ""}`}>
@@ -107,4 +108,18 @@ export default function Gallery({
             />
         </section>
     );
-}
+};
+
+Gallery.propTypes = {
+    productId: PropTypes.number,
+    images: PropTypes.arrayOf(
+        PropTypes.exact({
+            id: PropTypes.number.isRequired,
+            productId: PropTypes.number,
+            fullResolution: PropTypes.string,
+            thumbnail: PropTypes.string,
+        }).isRequired
+    ),
+};
+
+export default Gallery;

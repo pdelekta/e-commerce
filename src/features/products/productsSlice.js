@@ -87,6 +87,7 @@ export const selectProductsError = state => state.products.error;
 export const selectProductsByCategory = createSelector(
     [selectAllProducts, (state, category) => category, selectIsProductsLoading],
     (products, category, isProductsLoading) => {
+        if (!category) return products;
         if (!isProductsLoading) {
             return products.filter(product => product.category === category);
         }
