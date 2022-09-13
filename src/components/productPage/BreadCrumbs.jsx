@@ -22,7 +22,6 @@ const BreadCrumbs = ({ categoryName, productName }) => {
         </div>
     );
 
-    debugger;
     return isProductsLoading ? skeletonBreadCrumbs : BreadCrumbs;
 };
 

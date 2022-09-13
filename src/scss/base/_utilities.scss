@@ -75,6 +75,11 @@
         width: 40ch;
         height: map.get($font-sizes-desktop, "400");
         margin: 0;
+        display: none;
+
+        @media (min-width: map.get($media-breakpoints, "tablet")) {
+            display: initial;
+        }
     }
 
     &-image {
