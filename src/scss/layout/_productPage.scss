@@ -1,7 +1,7 @@
 @use "../abstracts/variables" as *;
 @use "sass:map";
 
-.main-container {
+.product-page-container {
     --gap: 1.5rem;
     flex-direction: column;
 }
@@ -10,14 +10,14 @@
 }
 
 @media (min-width: map.get($media-breakpoints, "tablet")) {
-    .main-container {
-        padding-inline: 4rem;
-        margin-inline: auto;
-        max-width: 90rem;
-        margin-top: 4rem;
+    .product-page-container {
+        --gap: 6vw;
+        flex-direction: row;
+    }
+}
 
-        &--flex-row {
-            flex-direction: row;
-        }
+@media (min-width: map.get($media-breakpoints, "desktop")) {
+    .product-page-container {
+        --gap: 7rem;
     }
 }

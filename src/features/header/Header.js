@@ -46,19 +46,19 @@ export default function Navbar() {
             <nav>
                 <ul className="primary-navigation | flex" data-visible={isMenuOpen}>
                     <CloseIcon className="close-burger" onClick={() => dispatch(setMenuOpen(false))} />
-                    <NavLink className="text-neutral-dark | flex fs-500" to="/collections">
+                    <NavLink className="text-neutral-dark flex fs-500" to="/collections">
                         <li className="primary-navigation__item">Collections</li>
                     </NavLink>
-                    <NavLink className="text-neutral-dark | flex fs-500" to="/men">
+                    <NavLink className="text-neutral-dark flex fs-500" to="/men">
                         <li className="primary-navigation__item">Men</li>
                     </NavLink>
-                    <NavLink className="text-neutral-dark | flex fs-500" to="/women">
+                    <NavLink className="text-neutral-dark flex fs-500" to="/women">
                         <li className="primary-navigation__item">Women</li>
                     </NavLink>
-                    <NavLink className="text-neutral-dark | flex fs-500" to="/about">
+                    <NavLink className="text-neutral-dark flex fs-500" to="/about">
                         <li className="primary-navigation__item">About</li>
                     </NavLink>
-                    <NavLink className="text-neutral-dark | flex fs-500" to="/contact">
+                    <NavLink className="text-neutral-dark flex fs-500" to="/contact">
                         <li className="primary-navigation__item">Contact</li>
                     </NavLink>
                 </ul>

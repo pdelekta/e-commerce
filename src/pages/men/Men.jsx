@@ -3,5 +3,9 @@ import { useResetHeaderModals } from "../../utilities";
 
 export default function Men() {
     useResetHeaderModals();
-    return <CategoryPage header="Men" categoryName="men" />;
+    return (
+        <main className="main-container main-container--flex-row | flex">
+            <CategoryPage header="Men" categoryName="men" />
+        </main>
+    );
 }

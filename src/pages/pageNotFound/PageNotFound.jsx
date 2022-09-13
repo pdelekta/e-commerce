@@ -1,8 +1,10 @@
 export default function PageNotFound() {
     return (
-        <div className="flex | pageNotFound-container">
-            <p className="fw-bold text-primary-dark fs-700">404</p>
-            <p>There's nothing here!</p>
-        </div>
+        <main className="main-container main-container--flex-row | flex">
+            <div className="flex | pageNotFound-container">
+                <p className="fw-bold text-primary-dark fs-700">404</p>
+                <p>There's nothing here!</p>
+            </div>
+        </main>
     );
 }

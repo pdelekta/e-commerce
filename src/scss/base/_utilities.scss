@@ -70,6 +70,13 @@
         }
     }
 
+    &-breadcrumbs {
+        border-radius: 0.5rem;
+        width: 40ch;
+        height: map.get($font-sizes-desktop, "400");
+        margin: 0;
+    }
+
     &-image {
         position: absolute;
         inset: 0;

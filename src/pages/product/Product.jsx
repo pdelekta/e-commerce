@@ -12,6 +12,7 @@ import { useResetHeaderModals } from "../../utilities";
 import ProductDetails from "../../components/productPage/productDetails/ProductDetails";
 import Gallery from "../../components/productPage/gallery/Gallery";
 import Error from "../../components/Error";
+import BreadCrumbs from "../../components/productPage/BreadCrumbs";
 
 export default function Product() {
     const dispatch = useDispatch();
@@ -37,9 +38,12 @@ export default function Product() {
     return productsError ? (
         <Error error={productsError} />
     ) : (
-        <>
-            <Gallery productId={productId} skeleton={isProductsLoading} images={product.images} />
-            <ProductDetails productId={productId} product={product} />
-        </>
+        <main className="main-container | flex">
+            <BreadCrumbs categoryName={product.category} productName={product.name} />
+            <div className="product-page-container | flex">
+                <Gallery productId={productId} skeleton={isProductsLoading} images={product.images} />
+                <ProductDetails productId={productId} product={product} />
+            </div>
+        </main>
     );
 }

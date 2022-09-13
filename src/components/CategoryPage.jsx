@@ -12,12 +12,12 @@ import Error from "../components/Error";
 const CategoryPage = ({ header, categoryName }) => {
     const dispatch = useDispatch();
     const productsError = useSelector(selectProductsError);
-    const products = useSelector(state => selectProductsByCategory(state, categoryName));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const products = useSelector(state => selectProductsByCategory(state, categoryName)) || [];
 
     useEffect(() => {
         if (products.length <= 1) dispatch(fetchProducts());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [products, dispatch]);
 
     return productsError ? (
         <Error error={productsError} />

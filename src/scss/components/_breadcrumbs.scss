@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as *;
+@use "sass:map";
+
+.breadcrumbs {
+    &__container {
+        --gap: 0.5rem;
+        display: none;
+        gap: var(--gap);
+
+        @media (min-width: map.get($media-breakpoints, "tablet")) {
+            order: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        & > a {
+            text-decoration: none;
+            transition: color 0.1s map.get($animation-types, "default");
+
+            &:hover {
+                color: map.get($colors, "neutral-dark");
+            }
+        }
+    }
+}

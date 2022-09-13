@@ -21,7 +21,9 @@
 @use "./components/pageNotFound";
 @use "./components/productsList";
 @use "./components/error";
+@use "./components/breadcrumbs";
 
 /* layout imports */
 @use "./layout/_main.scss";
 @use "./layout/_category.scss";
+@use "./layout/productPage";
