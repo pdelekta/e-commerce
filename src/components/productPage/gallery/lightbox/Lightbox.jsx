@@ -23,7 +23,6 @@ export default function Lightbox({
         } else if (!open) dialog.current?.close();
     }, [open]);
 
-    // debugger;
     if (isLoading === true || Object.keys(images[0]).length === 1) return;
 
     const thumbnailElements = images.map((image, index) => {
