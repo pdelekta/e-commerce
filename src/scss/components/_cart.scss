@@ -17,6 +17,7 @@
     transition: opacity 0.2s map.get($animation-types, "default"),
         top 0.2s map.get($animation-types, "default");
     box-shadow: 0 18px 30px -18px map.get($bg-colors, "black-light");
+    border: 1px solid map.get($colors, "neutral-medium");
 
     &[data-visible="true"] {
         opacity: 1;
