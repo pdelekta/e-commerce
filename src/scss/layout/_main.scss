@@ -4,6 +4,10 @@
 .main-container {
     --gap: 1.5rem;
     flex-direction: column;
+
+    &--checkout {
+        padding-inline: 1.5rem;
+    }
 }
 
 @media (min-width: map.get($media-breakpoints, "mobile")) {
@@ -18,6 +22,10 @@
 
         &--flex-row {
             flex-direction: row;
+        }
+
+        &--checkout {
+            max-width: 50rem;
         }
     }
 }

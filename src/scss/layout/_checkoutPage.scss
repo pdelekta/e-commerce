@@ -1,0 +1,62 @@
+@use "../abstracts/variables" as *;
+@use "sass:map";
+
+.checkout-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.checkout-form {
+    flex-direction: column;
+    --gap: 2rem;
+}
+
+.form-section {
+    --gap: 1rem;
+    flex-direction: column;
+}
+
+.form-section__inputs-container {
+    --gap: 0.5rem;
+    flex-direction: column;
+
+    @media (min-width: map.get($media-breakpoints, "mobile")) {
+        flex-direction: row;
+    }
+
+    &--column {
+        flex-direction: column;
+    }
+}
+
+.form-section__text-input {
+    border-radius: 0.5rem;
+    border: 1px solid map.get($colors, "neutral-dark");
+    padding: 0.75rem 0.5rem;
+    transition: border-color 0.1s map.get($animation-types, "default"),
+        outline 0.1s map.get($animation-types, "default");
+
+    &:focus-visible {
+        border-color: map.get($colors, "primary-dark");
+        outline: 1px solid map.get($colors, "primary-dark");
+    }
+
+    &:invalid[focused="true"] {
+        border-color: map.get($colors, "error");
+        outline: 1px solid map.get($colors, "error");
+
+        & + .form-section__text-input-error {
+            display: block;
+        }
+    }
+}
+
+.form-section__text-label {
+    &:not(:first-child) {
+        margin-top: 0.5rem;
+    }
+}
+
+.form-section__text-input-error {
+    display: none;
+}

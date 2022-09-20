@@ -7,6 +7,7 @@ import Women from "./pages/women/Women";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import PageNotFound from "./pages/pageNotFound/PageNotFound";
+import CheckoutPage from "./pages/checkoutPage/CheckoutPage";
 export default function App() {
     return (
         <>
@@ -36,6 +37,7 @@ export default function App() {
                 <Route path="/women" element={<Women />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
         </>

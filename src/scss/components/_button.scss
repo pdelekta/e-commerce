@@ -8,6 +8,7 @@
     border-radius: 0.5rem;
     cursor: pointer;
     align-items: center;
+    text-decoration: none;
     transition: opacity 0.2s map.get($animation-types, "default");
 
     & > img {

@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { selectCart } from "./cartSlice";
 import { selectIsCartOpen } from "../header/headerSlice";
 import CartItem from "./cartItem/CartItem";
@@ -25,18 +26,15 @@ export default function Cart() {
     ) : (
         <>
             <ul className="cart-items | flex">{cartElements}</ul>
-            <button className="btn | flex bg-primary-dark text-white fw-bold">
+
+            <Link className="btn | flex bg-primary-dark text-white fw-bold" to="/checkout">
                 Checkout
-            </button>
+            </Link>
         </>
     );
 
     return (
-        <div
-            className="cart-container | flex"
-            data-visible={open}
-            aria-hidden={!open}
-        >
+        <div className="cart-container | flex" data-visible={open} aria-hidden={!open}>
             <div className="cart-container__header | fs-500 fw-bold">Cart</div>
             <div className="cart-container__content | flex">{cartContent}</div>
         </div>
