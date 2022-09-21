@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { selectCart } from "../../features/cart/cartSlice";
 import { useResetHeaderModals } from "../../utilities";
+import { ReactComponent as ShippingIcon } from "../../assets/shipping.svg";
+import { ReactComponent as StoreIcon } from "../../assets/store.svg";
 import FormSection from "../../components/form/FormSection";
 import TextInput from "../../components/form/TextInput";
 import RadioInput from "../../components/form/RadioInput";
@@ -26,7 +28,10 @@ export default function CheckoutPage() {
         setValues(prevValues => ({ ...prevValues, [target.name]: target.value }));
     };
 
-    const deliveryOptions = [{ id: "Shipping" }, { id: "Local Pickup" }];
+    const deliveryOptions = [
+        { id: "Shipping", icon: <ShippingIcon className="form-section__radio-label-icon" /> },
+        { id: "Local Pickup", icon: <StoreIcon className="form-section__radio-label-icon" /> },
+    ];
 
     const detailsInputs = [
         {

@@ -1,8 +1,14 @@
 const RadioInput = ({ name, options, selectedValue, handleChange }) => {
     const optionsElements = options.map(option => (
-        <div className="radio-input__container | flex" key={option.id}>
-            <label className="form-section__radio-label | fs-500" htmlFor={option.id}>
-                {option.id}
+        <div className="form-section__radio-input-container | flex" key={option.id}>
+            <label
+                className={`form-section__radio-label | flex fs-500 ${
+                    selectedValue === option.id ? "active" : ""
+                }`}
+                htmlFor={option.id}
+            >
+                <span className="form-section__radio-label-text">{option.id}</span>
+                {option.icon}
             </label>
             <input
                 className="form-section__radio-input | fs-500"

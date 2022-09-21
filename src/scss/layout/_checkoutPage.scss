@@ -14,49 +14,91 @@
 .form-section {
     --gap: 1rem;
     flex-direction: column;
-}
 
-.form-section__inputs-container {
-    --gap: 0.5rem;
-    flex-direction: column;
-
-    @media (min-width: map.get($media-breakpoints, "mobile")) {
-        flex-direction: row;
-    }
-
-    &--column {
+    &__inputs-container {
+        --gap: 0.5rem;
         flex-direction: column;
-    }
-}
 
-.form-section__text-input {
-    border-radius: 0.5rem;
-    border: 1px solid map.get($colors, "neutral-dark");
-    padding: 0.75rem 0.5rem;
-    transition: border-color 0.1s map.get($animation-types, "default"),
-        outline 0.1s map.get($animation-types, "default");
+        @media (min-width: map.get($media-breakpoints, "mobile")) {
+            flex-direction: row;
+        }
 
-    &:focus-visible {
-        border-color: map.get($colors, "primary-dark");
-        outline: 1px solid map.get($colors, "primary-dark");
-    }
-
-    &:invalid[focused="true"] {
-        border-color: map.get($colors, "error");
-        outline: 1px solid map.get($colors, "error");
-
-        & + .form-section__text-input-error {
-            display: block;
+        &--column {
+            flex-direction: column;
         }
     }
-}
 
-.form-section__text-label {
-    &:not(:first-child) {
-        margin-top: 0.5rem;
+    &__text-input {
+        border-radius: 0.5rem;
+        border: 1px solid map.get($colors, "neutral-dark");
+        padding: 0.75rem 0.5rem;
+        transition: border-color 0.1s map.get($animation-types, "default"),
+            outline 0.1s map.get($animation-types, "default");
+
+        &:focus-visible {
+            border-color: map.get($colors, "primary-dark");
+            outline: 1px solid map.get($colors, "primary-dark");
+        }
+
+        &:invalid[focused="true"] {
+            border-color: map.get($colors, "error");
+            outline: 1px solid map.get($colors, "error");
+
+            & + .form-section__text-input-error {
+                display: block;
+            }
+        }
+
+        &-error {
+            display: none;
+        }
     }
-}
 
-.form-section__text-input-error {
-    display: none;
+    &__text-label {
+        &:not(:first-child) {
+            margin-top: 0.5rem;
+        }
+    }
+
+    &__radio-input-container {
+        width: 100%;
+    }
+
+    &__radio-label {
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        border: 1px solid map.get($colors, "neutral-dark");
+        padding: 1rem;
+        cursor: pointer;
+        transition: border-color 0.1s map.get($animation-types, "default"),
+            outline 0.1s map.get($animation-types, "default"),
+            color 0.1s map.get($animation-types, "default");
+
+        &:hover {
+            border-color: map.get($colors, "primary-dark");
+        }
+
+        &.active {
+            color: map.get($colors, "primary-dark");
+            border-color: map.get($colors, "primary-dark");
+            outline: 1px solid map.get($colors, "primary-dark");
+        }
+
+        &.active .form-section__radio-label-icon {
+            color: map.get($colors, "primary-dark");
+        }
+
+        &-icon {
+            transition: color 0.1s map.get($animation-types, "default");
+            color: map.get($colors, "neutral-dark");
+        }
+    }
+
+    &__radio-input {
+        display: none;
+    }
 }

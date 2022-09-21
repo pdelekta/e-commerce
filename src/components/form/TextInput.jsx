@@ -20,7 +20,7 @@ const TextInput = ({ name, title, type, errorMessage, ...rest }) => {
                 onBlur={handleBlur}
                 focused={isFocused.toString()}
             />
-            <span className="form-section__text-input-error | text-error">{errorMessage}</span>
+            <span className="form-section__text-input-error | fs-400 text-error">{errorMessage}</span>
         </>
     );
 };
