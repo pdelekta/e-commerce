@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { setMenuOpen, toggleCartOpen } from "./features/header/headerSlice";
 
 export const priceFormatter = price => {
+    if (price === 0) return "$0.00";
     if (price) return `$${price.toFixed(2)}`;
 };
 

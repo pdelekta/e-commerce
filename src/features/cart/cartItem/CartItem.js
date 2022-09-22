@@ -4,14 +4,22 @@ import { priceFormatter, getShortenedName } from "../../../utilities";
 import { Link } from "react-router-dom";
 import { ReactComponent as IconDelete } from "../../../images/icon-delete.svg";
 
-export default function CartItem({ id, name, price, quantity, thumbnail }) {
+export default function CartItem({
+    id,
+    name,
+    price,
+    quantity,
+    thumbnail,
+    haveDeleteButton,
+    nameLength,
+}) {
     const dispatch = useDispatch();
 
     const handleRemoveItem = id => {
         dispatch(removeItem(id));
     };
 
-    const shortName = getShortenedName(name, 20);
+    const shortName = getShortenedName(name, nameLength);
 
     return (
         <li className="cart-item | flex">
@@ -30,7 +38,9 @@ export default function CartItem({ id, name, price, quantity, thumbnail }) {
                     </div>
                 </div>
             </Link>
-            <IconDelete className="cart-item__delete" onClick={() => handleRemoveItem(id)} />
+            {haveDeleteButton && (
+                <IconDelete className="cart-item__delete" onClick={() => handleRemoveItem(id)} />
+            )}
         </li>
     );
 }

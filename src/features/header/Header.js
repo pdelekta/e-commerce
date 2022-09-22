@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { selectCartItemSum } from "../cart/cartSlice";
 import { toggleCartOpen, selectIsCartOpen, setMenuOpen, selectIsMenuOpen } from "./headerSlice";
 import logo from "../../images/logo.svg";
@@ -15,6 +15,7 @@ export default function Navbar() {
     let isMenuOpen = useSelector(selectIsMenuOpen);
     const isCartOpen = useSelector(selectIsCartOpen);
     const cartItemQuantity = useSelector(selectCartItemSum);
+    const location = useLocation();
 
     const mainContainer = document.querySelector(".main-container");
     if (mainContainer) mainContainer.style.pointerEvents = isMenuOpen ? "none" : "";
@@ -63,17 +64,25 @@ export default function Navbar() {
                     </NavLink>
                 </ul>
             </nav>
-            <span className={`primary-header__cart ${isCartOpen ? "active" : ""}`}>
-                <div className="cart-icon-wrapper">
-                    <CartIcon alt="cart-icon" onClick={handleCartOpen} />
-                    {cartItemQuantity > 0 && (
-                        <span className="cart-icon-quantity | fw-bold">{cartItemQuantity}</span>
-                    )}
-                </div>
+            {location.pathname !== "/checkout" && (
+                <span className={`primary-header__cart | ml-auto ${isCartOpen ? "active" : ""}`}>
+                    <div className="cart-icon-wrapper">
+                        <CartIcon alt="cart-icon" onClick={handleCartOpen} />
+                        {cartItemQuantity > 0 && (
+                            <span className="cart-icon-quantity | fw-bold">{cartItemQuantity}</span>
+                        )}
+                    </div>
 
-                <Cart />
-            </span>
-            <img className="primary-header__avatar" src={avatar} alt="avatar" />
+                    <Cart />
+                </span>
+            )}
+            <img
+                className={`primary-header__avatar | ${
+                    location.pathname !== "/checkout" ? "" : "ml-auto"
+                }`}
+                src={avatar}
+                alt="avatar"
+            />
         </header>
     );
 }

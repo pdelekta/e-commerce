@@ -8,11 +8,7 @@ export const cartSlice = createSlice({
         addItem: (state, action) => {
             if (action.payload.quantity === 0) return state;
 
-            if (
-                state.find(
-                    item => item.product.id === action.payload.product.id
-                )
-            ) {
+            if (state.find(item => item.product.id === action.payload.product.id)) {
                 state.forEach(item => {
                     if (item.product.id === action.payload.product.id) {
                         item.quantity += action.payload.quantity;
@@ -29,8 +25,7 @@ export const cartSlice = createSlice({
                 },
             ];
         },
-        removeItem: (state, action) =>
-            state.filter(item => item.product.id !== action.payload),
+        removeItem: (state, action) => state.filter(item => item.product.id !== action.payload),
         // updateQuantity: (state, action) => {
         //     state.find(item => item.product.id === action.payload.id).quantity =
         //         action.payload.quantity;
@@ -51,4 +46,9 @@ export const selectCart = state => state.cart;
 export const selectCartItemSum = state =>
     state.cart.reduce((acc, value) => {
         return acc + value.quantity;
+    }, 0);
+
+export const selectCartItemsTotal = state =>
+    state.cart.reduce((acc, value) => {
+        return acc + value.product.price * value.quantity;
     }, 0);

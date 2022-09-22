@@ -30,6 +30,10 @@
     gap: var(--gap, 1rem);
 }
 
+.ml-auto {
+    margin-left: auto;
+}
+
 .skeleton {
     animation: skeleton-loading 1s linear infinite alternate;
 

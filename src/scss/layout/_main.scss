@@ -6,6 +6,7 @@
     flex-direction: column;
 
     &--checkout {
+        margin-bottom: 5rem;
         padding-inline: 1.5rem;
     }
 }
@@ -22,10 +23,6 @@
 
         &--flex-row {
             flex-direction: row;
-        }
-
-        &--checkout {
-            max-width: 50rem;
         }
     }
 }

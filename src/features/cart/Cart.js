@@ -16,6 +16,8 @@ export default function Cart() {
             price={product.price}
             quantity={quantity}
             thumbnail={product.thumbnail}
+            haveDeleteButton={true}
+            nameLength={20}
         />
     ));
 

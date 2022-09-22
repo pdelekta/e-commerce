@@ -1,36 +1,73 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { selectCart } from "../../features/cart/cartSlice";
+import { selectCart, selectCartItemsTotal } from "../../features/cart/cartSlice";
 import { useResetHeaderModals } from "../../utilities";
 import { ReactComponent as ShippingIcon } from "../../assets/shipping.svg";
 import { ReactComponent as StoreIcon } from "../../assets/store.svg";
-import FormSection from "../../components/form/FormSection";
-import TextInput from "../../components/form/TextInput";
-import RadioInput from "../../components/form/RadioInput";
+import { ReactComponent as DebitCardIcon } from "../../assets/debit-card.svg";
+import { ReactComponent as MoneyIcon } from "../../assets/money.svg";
+import FormSection from "../../components/checkoutForm/FormSection";
+import TextInput from "../../components/checkoutForm/TextInput";
+import RadioInput from "../../components/checkoutForm/RadioInput";
+import CheckoutSummary from "../../components/checkoutForm/CheckoutSummary";
 
 export default function CheckoutPage() {
     useResetHeaderModals();
     const [values, setValues] = useState({
-        delivery: "",
+        delivery: { name: "Shipping", cost: 10 },
         firstName: "",
         lastName: "",
         address: "",
         city: "",
         email: "",
         phoneNumber: "",
+        payment: { name: "Online payment", cost: 0 },
     });
 
     const isCartEmpty = useSelector(selectCart).length === 0;
+    const cartItemsTotal = useSelector(selectCartItemsTotal);
+
     if (isCartEmpty) return <Navigate replace to="/" />;
+
+    const cashOnDeliveryCost = values.delivery.name === "Shipping" ? 5 : 0;
 
     const handleChange = ({ target }) => {
         setValues(prevValues => ({ ...prevValues, [target.name]: target.value }));
     };
 
+    const handleChangeDelivery = ({ target }) => {
+        setValues(prevValues => ({
+            ...prevValues,
+            [target.name]: {
+                name: target.value,
+                cost: target.value === "Shipping" ? 10 : 0,
+            },
+        }));
+    };
+
+    const handleChangePayment = ({ target }) => {
+        setValues(prevValues => ({
+            ...prevValues,
+            [target.name]: {
+                name: target.value,
+                cost: target.value === "Cash on delivery" ? cashOnDeliveryCost : 0,
+            },
+        }));
+    };
+
     const deliveryOptions = [
-        { id: "Shipping", icon: <ShippingIcon className="form-section__radio-label-icon" /> },
+        { id: "Shipping", icon: <ShippingIcon className="form-section__radio-label-icon" />, cost: 10 },
         { id: "Local Pickup", icon: <StoreIcon className="form-section__radio-label-icon" /> },
+    ];
+
+    const paymentOptions = [
+        {
+            id: "Cash on delivery",
+            icon: <MoneyIcon className="form-section__radio-label-icon" />,
+            cost: cashOnDeliveryCost,
+        },
+        { id: "Online payment", icon: <DebitCardIcon className="form-section__radio-label-icon" /> },
     ];
 
     const detailsInputs = [
@@ -82,27 +119,59 @@ export default function CheckoutPage() {
             required: true,
         },
     ];
-    const detailsInputsElements = detailsInputs.map(input => (
-        <TextInput key={input.name} {...input} value={values[input.name]} onChange={handleChange} />
-    ));
+    const detailsInputsElements = detailsInputs.map(input => {
+        if (values.delivery.name === "Local Pickup" && input.name === "address") return false;
+        if (values.delivery.name === "Local Pickup" && input.name === "city") return false;
+        return (
+            <TextInput key={input.name} {...input} value={values[input.name]} onChange={handleChange} />
+        );
+    });
 
     return (
         <main className="main-container main-container--checkout | flex">
             <h1 className="checkout-title | fs-600 text-neutral-darker fw-bold">Checkout</h1>
-            <form className="checkout-form | flex">
-                <FormSection
-                    title="Shipping or pickup"
-                    sectionInputs={
-                        <RadioInput
-                            name="delivery"
-                            options={deliveryOptions}
-                            handleChange={handleChange}
-                            selectedValue={values.delivery}
+            <div className="checkout-container | flex">
+                <section className="form-container | flex">
+                    <form className="checkout-form | flex">
+                        <FormSection
+                            title="Delivery"
+                            sectionInputs={
+                                <RadioInput
+                                    name="delivery"
+                                    options={deliveryOptions}
+                                    handleChange={handleChangeDelivery}
+                                    selectedValue={values.delivery.name}
+                                />
+                            }
                         />
-                    }
-                />
-                <FormSection title="Details" sectionInputs={detailsInputsElements} column />
-            </form>
+                        <FormSection
+                            title="Payment method"
+                            sectionInputs={
+                                <RadioInput
+                                    name="payment"
+                                    options={paymentOptions}
+                                    handleChange={handleChangePayment}
+                                    selectedValue={values.payment.name}
+                                />
+                            }
+                            column
+                        />
+                        <FormSection title="Details" sectionInputs={detailsInputsElements} column />
+                        <button className="btn btn--add-to-cart | flex bg-primary-dark text-white fw-bold">
+                            Order and Pay
+                        </button>
+                    </form>
+                </section>
+                <section className="checkout-summary | flex">
+                    <CheckoutSummary
+                        costs={[
+                            { name: "Delivery", value: values.delivery.cost },
+                            { name: "Payment", value: values.payment.cost },
+                        ]}
+                        totalCost={cartItemsTotal + values.delivery.cost + values.payment.cost}
+                    />
+                </section>
+            </div>
         </main>
     );
 }

@@ -1,6 +1,26 @@
 @use "../abstracts/variables" as *;
 @use "sass:map";
 
+.checkout-container {
+    flex-direction: column;
+    --gap: 3rem;
+
+    @media (min-width: map.get($media-breakpoints, "tablet")) {
+        flex-direction: row;
+    }
+}
+
+.form-container {
+    flex-direction: column;
+    max-width: 50rem;
+    flex-grow: 1;
+    order: 1;
+
+    @media (min-width: map.get($media-breakpoints, "tablet")) {
+        order: 0;
+    }
+}
+
 .checkout-title {
     flex-grow: 1;
     text-align: center;
@@ -96,9 +116,44 @@
             transition: color 0.1s map.get($animation-types, "default");
             color: map.get($colors, "neutral-dark");
         }
+
+        &--payment {
+            flex-direction: row;
+        }
     }
 
     &__radio-input {
         display: none;
+    }
+}
+
+.checkout-summary {
+    --gap: 1rem;
+    order: 0;
+    flex-direction: column;
+
+    @media (min-width: map.get($media-breakpoints, "tablet")) {
+        order: 1;
+        width: min(20rem, 30vw);
+    }
+
+    & > .cart-items {
+        padding-bottom: var(--gap);
+        border-bottom: 1px solid map.get($colors, neutral);
+
+        & .cart-item__link {
+            flex-grow: 1;
+        }
+    }
+
+    &__costs {
+        flex-direction: column;
+        padding-bottom: var(--gap);
+        border-bottom: 1px solid hsl(220deg, 14%, 75%);
+    }
+
+    &__cost,
+    &__total-container {
+        justify-content: space-between;
     }
 }
