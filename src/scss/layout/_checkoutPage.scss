@@ -137,12 +137,18 @@
         width: min(20rem, 30vw);
     }
 
-    & > .cart-items {
-        padding-bottom: var(--gap);
-        border-bottom: 1px solid map.get($colors, neutral);
+    &-container {
+        flex-direction: column;
+        position: sticky;
+        top: 1.5rem;
 
-        & .cart-item__link {
-            flex-grow: 1;
+        & > .cart-items {
+            padding-bottom: var(--gap);
+            border-bottom: 1px solid map.get($colors, neutral);
+
+            & .cart-item__link {
+                flex-grow: 1;
+            }
         }
     }
 

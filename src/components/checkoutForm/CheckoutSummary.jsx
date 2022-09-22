@@ -17,7 +17,7 @@ const CheckoutSummary = ({ costs, totalCost }) => {
         />
     ));
     return (
-        <>
+        <div className="checkout-summary-container | flex">
             <h2 className="fs-550 fw-bold">Your order</h2>
             <ul className="cart-items | flex">{cartElements}</ul>
             <div className="checkout-summary__costs | flex">
@@ -38,7 +38,7 @@ const CheckoutSummary = ({ costs, totalCost }) => {
                     {priceFormatter(totalCost)}
                 </span>
             </div>
-        </>
+        </div>
     );
 };
 
