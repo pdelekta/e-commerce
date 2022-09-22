@@ -31,7 +31,8 @@ export default function CartItem({
                         <span className="cart-item__base-price | text-neutral-dark">
                             {priceFormatter(price)}
                         </span>
-                        x<span className="cart-item__quantity | text-neutral-dark">{quantity}</span>
+                        <span className="text-black">x</span>
+                        <span className="cart-item__quantity | text-neutral-dark">{quantity}</span>
                         <span className="cart-item__sum-price | fw-bold text-neutral-darker">
                             {priceFormatter(price * quantity)}
                         </span>
